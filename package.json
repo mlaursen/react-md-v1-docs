@@ -15,7 +15,7 @@
   ],
   "types": "./index.d.ts",
   "scripts": {
-    "predeploy": "cd docs && cross-env ROOT_PATH=\"/react-md-v1-docs/\" npm run build",
+    "predeploy": "cd docs && npm run build",
     "deploy": "gh-pages -d docs/public",
     "lint:fix": "eslint -c .eslintrc --fix src",
     "lint": "eslint -c .eslintrc src",

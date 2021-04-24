@@ -294,7 +294,7 @@ module.exports = ({ production }) => {
         __CLIENT__: true,
         __SSR__: false,
         'process.env.NODE_ENV': JSON.stringify(production ? 'production' : 'development'),
-        'process.env.ROOT_PATH': JSON.stringify(publicPath),
+        'process.env.ROOT_PATH': JSON.stringify('/'),
       }),
       new SpriteLoaderPlugin(),
       ...additionalPlugins,

@@ -17,8 +17,8 @@ import VersionPicker from './VersionPicker';
 
 const helmetConfig = {
   htmlAttributes: { lang: 'en', class: 'custom-theme' },
-  defaultTitle: 'react-md',
-  titleTemplate: '%s - react-md',
+  defaultTitle: 'react-md@v1',
+  titleTemplate: '%s - react-md@v1',
 };
 
 const App = ({

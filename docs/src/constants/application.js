@@ -1,6 +1,6 @@
 import { bugs } from '../../../package.json';
 
-export const ROOT_PATH = process.env.ROOT_PATH;
+export const ROOT_PATH = process.env.ROOT_PATH || '/';
 
 export const GITHUB_URL = bugs.url.replace('/issues', '');
 export const API_ENDPOINT = `${ROOT_PATH}api`;
