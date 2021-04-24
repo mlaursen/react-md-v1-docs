@@ -1,10 +1,16 @@
 import 'babel-polyfill';
 import 'svgxuse';
+import React from 'react';
+import { render } from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+
+import App from 'components/App';
 import { updateLocale } from 'state/locale';
 import { updateCustomTheme } from 'state/helmet';
 
 import configureStore from './configureStore';
-import render from './render';
+import loadIntl from './loadIntl';
 
 import './styles.scss';
 
@@ -20,4 +26,20 @@ if (!navigator.onLine || !__SSR__) {
 store.dispatch(updateLocale(locale));
 
 const root = document.getElementById('app');
-render(root, store, locale);
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.ready.then((registration) => {
+    registration.unregister();
+  });
+}
+
+(async function doRender() {
+  await loadIntl(locale);
+  render(
+    <Provider store={store}>
+      <Router>
+        <App />
+      </Router>
+    </Provider>,
+    root
+  );
+}());
