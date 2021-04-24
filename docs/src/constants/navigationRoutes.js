@@ -1,4 +1,4 @@
-import { ROOT_PATH } from 'constants/application';
+const SASSDOC_PREFIX = process.env.NODE_ENV === 'production' ? '/react-md-v1-docs/' : '/';
 
 export const componentRoutes = [
   'autocompletes',
@@ -69,7 +69,7 @@ const navigationRoutes = [{
     'media-queries',
     'minimizing-bundle', {
       label: 'SassDoc',
-      href: `${ROOT_PATH}sassdoc`,
+      href: `${SASSDOC_PREFIX}sassdoc`,
     },
   ],
 }, {
