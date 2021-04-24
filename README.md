@@ -2,6 +2,8 @@
 
 React Material Design - React components built with sass
 
+## Note: This version is no longer being maintained and this repo only exists to host the v1 documentation site. Please use the latest version at [the main repo](https://github.com/mlaursen/react-md) instead.
+
 [![Build Status](https://travis-ci.org/mlaursen/react-md.svg?branch=v1)](https://travis-ci.org/mlaursen/react-md)
 [![Join the chat at Slack](https://react-md.herokuapp.com/badge.svg)](https://react-md.herokuapp.com) [![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://paypal.me/mlaursen03)
 
