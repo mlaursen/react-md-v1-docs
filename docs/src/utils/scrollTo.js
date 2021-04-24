@@ -29,7 +29,12 @@ export default function scrollTo(el = null) {
   requestAnimationFrame(() => {
     setTimeout(() => {
       if (el === null) {
-        const { hash } = window.location;
+        let { hash } = window.location;
+        if (process.env.NODE_ENV === 'production') {
+          const i = hash.lastIndexOf('#');
+          hash = i < 1 ? '' : hash.substring(i);
+        }
+
         el = (hash && document.querySelector(hash)) || null;
       }
 

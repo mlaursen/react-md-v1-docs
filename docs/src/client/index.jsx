@@ -2,7 +2,7 @@ import 'babel-polyfill';
 import 'svgxuse';
 import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter, HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import App from 'components/App';
@@ -31,6 +31,8 @@ if ('serviceWorker' in navigator) {
     registration.unregister();
   });
 }
+
+const Router = process.env.NODE_ENV === 'production' ? HashRouter : BrowserRouter;
 
 (async function doRender() {
   await loadIntl(locale);

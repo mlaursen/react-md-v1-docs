@@ -20,13 +20,14 @@ class NativeLink extends PureComponent {
     const { history } = this.props;
 
     if (this.link) {
-      history.push(this.link.href.replace(window.location.origin, ''));
+      const href = this.link.href.replace(window.location.origin, '').replace(/^\/#/, '');
+      history.push(href);
     }
   };
 
   render() {
     const {
-      href,
+      href: propHref,
       children,
       location,
       history,
@@ -35,6 +36,12 @@ class NativeLink extends PureComponent {
       staticContext,
       ...props
     } = this.props;
+
+    let href = propHref;
+    if (process.env.NODE_ENV === 'production' && href.startsWith('#')) {
+      const { pathname, search } = location;
+      href = `#${pathname}${search}${propHref}`;
+    }
 
     return (
       <a
