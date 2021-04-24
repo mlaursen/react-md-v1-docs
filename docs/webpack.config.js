@@ -78,6 +78,7 @@ module.exports = ({ production }) => {
   // if (!production) {
   //   publicPath = `${publicUrl}:3000/`;
   // }
+  const publicPath = production ? 'react-md-v1-docs' : '/';
 
   let entry;
   let target;
@@ -189,7 +190,7 @@ module.exports = ({ production }) => {
     externals,
     output: {
       path: dist,
-      publicPath: '/',
+      publicPath,
       filename,
       chunkFilename,
     },
@@ -285,14 +286,14 @@ module.exports = ({ production }) => {
         },
       }),
       new webpack.DefinePlugin({
-        PUBLIC_URL: JSON.stringify('/'),
+        PUBLIC_URL: JSON.stringify(publicPath),
         __NGINX__: !!process.env.USE_NGINX,
         __DEV__: !production,
         __TEST__: false,
         __CLIENT__: true,
         __SSR__: false,
         'process.env.NODE_ENV': JSON.stringify(production ? 'production' : 'development'),
-        'process.env.ROOT_PATH': JSON.stringify('/'),
+        'process.env.ROOT_PATH': JSON.stringify(publicPath),
       }),
       new SpriteLoaderPlugin(),
       ...additionalPlugins,
