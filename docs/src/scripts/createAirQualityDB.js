@@ -8,7 +8,7 @@ import Promise from 'bluebird';
 const LIMIT = 3682;
 
 const writeFile = Promise.promisify(fs.writeFile);
-const fileName = path.resolve(process.cwd(), 'src', 'server', 'databases', 'airQuality.json');
+const fileName = path.resolve(process.cwd(), 'src', 'databases', 'airQuality.json');
 
 async function createAirQualityDB() {
   console.log('Fetching new data....');

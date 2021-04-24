@@ -3,11 +3,11 @@ import 'babel-polyfill';
 
 import fs from 'fs';
 import Promise from 'bluebird';
-import { JSDOC_DATABASE } from 'server/constants';
+import { JSDOC_DATABASE } from './constants';
 
 const writeFile = Promise.promisify(fs.writeFile);
 
-import jsdoc from 'server/databases/jsdoc.json';
+import jsdoc from 'databases/jsdoc.json';
 
 function reduceProperties(props, { name, description, defaultvalue: value, kind }) {
   if (kind === 'member') {

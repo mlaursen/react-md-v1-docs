@@ -5,8 +5,8 @@ import { parse } from 'react-docgen';
 import { kebabCase } from 'lodash/string';
 import { toCaterpillarCase } from 'utils/strings';
 
-import jsdocs from 'server/databases/jsdocs.json';
-import { BASE_SOURCE_PATH } from 'server/constants';
+import jsdocs from 'databases/jsdocs.json';
+import { BASE_SOURCE_PATH } from '../constants';
 import isPrivate from './isPrivate';
 import prettifyProp from './prettifyProp';
 

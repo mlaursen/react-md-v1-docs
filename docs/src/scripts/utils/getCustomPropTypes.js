@@ -1,7 +1,7 @@
 import fs from 'fs';
 import Promise from 'bluebird';
 
-import { REACT_MD_PROP_TYPES } from 'server/constants';
+import { REACT_MD_PROP_TYPES } from '../constants';
 import isPrivate from './isPrivate';
 
 const readdir = Promise.promisify(fs.readdir);

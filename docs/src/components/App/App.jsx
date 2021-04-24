@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { NavigationDrawer, bem } from 'react-md';
 
-import { ROOT_PATH } from 'constants/application';
 import navItems from 'constants/navItems';
 import Link from 'components/Link';
 import DocumentationTabs from 'components/DocumentationTabs';
@@ -14,7 +13,6 @@ import MobileNavigation from 'components/MobileNavigation';
 import History from './History';
 import Routes from './Routes';
 import Footer from './Footer';
-import NewDomain from './NewDomain';
 import VersionPicker from './VersionPicker';
 
 const helmetConfig = {
@@ -70,7 +68,6 @@ const App = ({
       {bottomNav}
       <Messages />
       <Footer />
-      {ROOT_PATH !== '/v1/' && process.env.NODE_ENV === 'production' && <NewDomain />}
     </NavigationDrawer>
   );
 };

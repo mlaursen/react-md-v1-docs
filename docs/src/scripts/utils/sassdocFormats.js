@@ -1,5 +1,5 @@
 import { uniqBy } from 'lodash/array';
-import { BASE_SOURCE_PATH } from 'server/constants';
+import { BASE_SOURCE_PATH } from '../constants';
 import { createSassDocLink } from './getSassDocLinks';
 
 const MAP_DELIMETER = ': (';

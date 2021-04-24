@@ -17,8 +17,6 @@ import EditableTables from './EditableTables';
 import EditableTablesRaw from '!!raw-loader!./EditableTables.jsx';
 import EditDialogExample from './EditDialogExample';
 import EditDialogExampleRaw from '!!raw-loader!./EditDialogExample.jsx';
-import FixedTablePagination from './FixedTablePagination';
-import FixedTablePaginationRaw from './FixedTablePagination/code';
 import DynamicContentTable from './DynamicContentTable';
 import DynamicContentTableRaw from './DynamicContentTable/code';
 
@@ -173,24 +171,6 @@ and \`DropdownMenuColumn\` components.
   `,
   code: WithMenusRaw,
   children: <WithMenus />,
-}, {
-  title: 'Fixed Headers/Footers and Pagination',
-  description: `
-There is some _very limited_ support for fixed table headers/footers built into \`react-md\`. However, it
-is advisable to use a third party library such as [react-virtualized](https://github.com/bvaughn/react-virtualized)
-when dealing with heavy interaction-based tables or using fixed headers. Part of the problem with the implementation
-that is built into this library is that the vertical scrollbar does not appear until you have scrolled horizontally
-to the end which is confusing for users on OSes that display scroll bars.
-
-If this still seems fine, there is a mixin built in that will help you create fixed tables at a specific size or
-to span the entire page. See [react-md-make-fixed-table](?tab=2#mixin-react-md-make-fixed-table)
-for some more information there.
-
-This example will show how you can use your fixed table headers/footers along with the \`TablePagination\` component
-to dynamically retrieve data from an API and display it in your table.
-  `,
-  code: FixedTablePaginationRaw,
-  children: <FixedTablePagination />,
 }, {
   title: 'Dynamic Content Table',
   description: `

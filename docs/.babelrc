@@ -16,7 +16,7 @@
       "alias": {
         "imgs": "./src/imgs",
         "constants": "./src/constants",
-        "server": "./src/server",
+        "databases": "./src/databases",
         "utils": "./src/utils",
         "react-md": "../"
       }

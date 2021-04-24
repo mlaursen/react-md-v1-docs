@@ -1,5 +1,5 @@
 import { ROOT_PATH } from 'constants/application';
-import { componentRoutes } from 'server/routes';
+import { componentRoutes } from '../constants';
 import { toTitle } from 'utils/strings';
 
 const routes = [

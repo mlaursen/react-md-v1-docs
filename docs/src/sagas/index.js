@@ -4,8 +4,6 @@ import docgens from './docgens';
 import sassdocs from './sassdocs';
 import search from './search';
 import themes from './themes';
-import github from './github';
-import airQuality from './airQuality';
 
 export default function* sagas() {
   yield all([
@@ -13,7 +11,5 @@ export default function* sagas() {
     spawn(sassdocs),
     spawn(search),
     spawn(themes),
-    spawn(github),
-    spawn(airQuality),
   ]);
 }

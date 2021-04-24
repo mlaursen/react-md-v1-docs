@@ -5,7 +5,7 @@ import fs from 'fs';
 import Promise from 'bluebird';
 import pluralize from 'pluralize';
 import { kebabCase } from 'lodash/string';
-import { NESTED_GROUPS, DOCGEN_DATABASE, PROP_TYPE_DATABASE } from 'server/constants';
+import { NESTED_GROUPS, DOCGEN_DATABASE, PROP_TYPE_DATABASE } from './constants';
 import createComponentsDocgen from './utils/createComponentsDocgen';
 import getCustomPropTypes from './utils/getCustomPropTypes';
 import getDocumentableComponents from './utils/getDocumentableComponents';

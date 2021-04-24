@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import Promise from 'bluebird';
-import { REACT_MD_JS } from 'server/constants';
+import { REACT_MD_JS } from '../constants';
 
 const DEPRECATED = [
   'FlatButton',

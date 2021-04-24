@@ -7,7 +7,7 @@ import { singular } from 'pluralize';
 import { Version } from 'react-md';
 
 import { ROOT_PATH, GITHUB_URL } from 'constants/application';
-import { EXAMPLES_LINKS_DATABASE } from 'server/constants';
+import { EXAMPLES_LINKS_DATABASE } from './constants';
 
 const writeFile = Promise.promisify(fs.writeFile);
 const readFile = Promise.promisify(fs.readFile);

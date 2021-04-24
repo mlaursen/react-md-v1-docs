@@ -8,7 +8,6 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 const AssetsPlugin = require('assets-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ProductionCleanupPlugin = require('./src/utils/webpack/ProductionCleanupPlugin');
 const winston = require('winston');
 const { name, homepage } = require('./package.json');
 
@@ -17,8 +16,6 @@ const src = path.resolve(__dirname, 'src');
 const modules = path.resolve(__dirname, 'node_modules');
 const clientEntry = path.join(src, 'client', 'index.jsx');
 const clientDist = path.resolve(__dirname, 'public');
-const SERVICE_WORKER = 'service-worker.js';
-const SSR = !!process.env.USE_SSR;
 const POLL_ENTRY = 'webpack/hot/poll?1000';
 const PRODUCTION_SUFFIX = '.[chunkhash:8].min';
 const DEV_PLUGINS = [
@@ -41,7 +38,6 @@ const CLIENT_PROD_PLUGINS = [
     comments: false,
     sourceMap: true,
   }),
-  new ProductionCleanupPlugin(),
   new ManifestPlugin(),
   new webpack.HashedModuleIdsPlugin(),
   new webpack.optimize.CommonsChunkPlugin({
@@ -92,7 +88,7 @@ module.exports = ({ production }) => {
   const extractStyles = new ExtractTextPlugin({
     filename: `styles${PRODUCTION_SUFFIX}.css`,
     allChunks: true,
-    disable: !production && !SSR,
+    disable: !production,
   });
   const dist = clientDist;
   entry = clientEntry;
@@ -294,7 +290,7 @@ module.exports = ({ production }) => {
         __DEV__: !production,
         __TEST__: false,
         __CLIENT__: true,
-        __SSR__: production || SSR,
+        __SSR__: false,
         'process.env.NODE_ENV': JSON.stringify(production ? 'production' : 'development'),
         'process.env.ROOT_PATH': JSON.stringify('/'),
       }),
