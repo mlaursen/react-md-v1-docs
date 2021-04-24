@@ -14,6 +14,13 @@ import './_styles.scss';
 import Preview from './Preview';
 import Configuration from './Configuration';
 
+/* eslint-disable */
+const ABOUT_LIVE_PREVIEW = `
+# Live Preview has been disabled
+
+## Since this documentation site no longer uses a custom server, the live preview behavior will no longer work. Please check out the [latest react-md Theme Builder](https://react-md.dev/colors-and-theming/theme-builder) instead.
+`;
+
 const ABOUT_THEME_BUILDER = `
 ### Custom CSS Theme Builder
 
@@ -121,6 +128,9 @@ precompiled.
     return (
       <Grid style={style}>
         <Helmet title="Theme Builder" />
+        <Cell size={12} style={{ marginBottom: '5rem' }}>
+          <Markdown markdown={ABOUT_LIVE_PREVIEW} />
+        </Cell>
         <Configuration {...props} onChange={this.handleChange} onSelectChange={this.handleSelectChange} />
         <Cell component="section" size={8} desktopSize={6}>
           <Markdown markdown={ABOUT_THEME_BUILDER} className="md-text-container" />

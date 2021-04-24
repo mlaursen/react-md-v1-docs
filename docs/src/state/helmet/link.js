@@ -1,7 +1,3 @@
-import { findIndex } from 'lodash/array';
-
-import { ROOT_PATH } from 'constants/application';
-import { CUSTOM_THEME_ROUTE } from 'constants/colors';
 
 export const UPDATE_CUSTOM_THEME = 'UPDATE_CUSTOM_THEME';
 export function updateCustomTheme(href) {
@@ -19,32 +15,8 @@ export const INITIAL_STATE = [{
 const CUSTOM_THEME_ID = 'custom-theme-styles';
 export const CUSTOM_THEME_LINK = { id: CUSTOM_THEME_ID, rel: 'stylesheet' };
 
-function handleCustomThemeChange(state, { href }) {
-  const i = findIndex(state, link => link.id === CUSTOM_THEME_ID);
-  if (href === null && i === -1) {
-    return state;
-  }
-
-  const preview = href === null
-    ? null
-    : { ...(state[i] || CUSTOM_THEME_LINK), href: `${ROOT_PATH}${CUSTOM_THEME_ROUTE}/${href}` };
-
-  const nextState = state.slice();
-  if (preview && i === -1) {
-    nextState.push(preview);
-  } else if (preview) {
-    nextState.splice(i, 1, preview);
-  } else {
-    nextState.splice(i, 1);
-  }
-
-  return nextState;
-}
-
 export default function link(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case UPDATE_CUSTOM_THEME:
-      return handleCustomThemeChange(state, action.payload);
     default:
       return state;
   }
