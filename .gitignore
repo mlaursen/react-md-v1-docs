@@ -15,8 +15,8 @@ docs/public
 !docs/public/robots.txt
 !docs/public/favicon.ico
 !docs/public/react-md.png
-docs/src/server/databases/*
-!docs/src/server/databases/airQuality.json
+docs/src/databases/*
+!docs/src/databases/airQuality.json
 src/scss/bundles
 docs/src/constants/scssColors.js
 

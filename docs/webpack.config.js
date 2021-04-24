@@ -78,7 +78,7 @@ module.exports = ({ production }) => {
   // if (!production) {
   //   publicPath = `${publicUrl}:3000/`;
   // }
-  const publicPath = production ? 'react-md-v1-docs' : '/';
+  const publicPath = production ? '/react-md-v1-docs/' : '/';
 
   let entry;
   let target;
@@ -276,6 +276,7 @@ module.exports = ({ production }) => {
         filename: 'index.html',
         inject: true,
         analytics: production ? analytics : '',
+        publicPath,
       }),
       new webpack.LoaderOptionsPlugin({
         options: {
