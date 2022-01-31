@@ -10,7 +10,7 @@ const VersionPicker = () => {
         id="version-picker"
         menuItems={[{
           href: 'https://react-md.dev',
-          primaryText: 'v2',
+          primaryText: 'latest',
           component: 'a',
         }]}
         belowAnchor={{
